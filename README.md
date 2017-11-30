@@ -2,6 +2,8 @@
 
 A Vue.js 2.0 usueful mini components for Web.
 
+[Document](https://isuke.github.io/rhoa-doc/)
+
 ## Usage
 
 ```sh
@@ -21,8 +23,9 @@ $ yarn add -D rhoa
 import * as rhoa from 'rhoa'
 
 export default = {
-  components:
+  components: {
     'smart-link': rhoa.SmartLink
+  }
 };
 </script>
 ```
