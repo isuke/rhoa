@@ -45,7 +45,7 @@ export default
       note: "Style reset or not reset"
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .smart-link
   &.-reset
     margin: 0
