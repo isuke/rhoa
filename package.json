@@ -3,12 +3,17 @@
   "description": "A Vue.js 2.0 useful mini components for Web.",
   "version": "0.0.1",
   "main": "dist/rhoa.js",
+  "cdn": "dist/rhoa.min.js",
   "author": "isuke <isuke770@gmail.com>",
   "license": "MIT",
   "private": false,
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "test": "cross-env NODE_ENV=test mocha-webpack --webpack-config webpack.config.js --require spec/setup.js spec/**/*.spec.coffee",
-    "build": "cross-env NODE_ENV=development webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "repository": {
     "type": "git",

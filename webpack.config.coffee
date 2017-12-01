@@ -53,6 +53,7 @@ baseConfig =
       '@components': path.resolve(__dirname, 'src', 'components')
       'vue$': 'vue/dist/vue.esm.js'
   externals: {
+    'vue': 'Vue'
     '_': 'lodash'
   }
   plugins: [
@@ -62,7 +63,7 @@ baseConfig =
   ]
 
 if process.env.NODE_ENV == 'production'
-  productionConfig = merge baseConfig
+  productionConfig = merge baseConfig,
     plugins: [
       new CleanWebpackPlugin(['dist'])
       new webpack.optimize.UglifyJsPlugin
@@ -84,11 +85,11 @@ if process.env.NODE_ENV == 'production'
         libraryTarget: 'window'
         library: 'Rhoa'
     merge productionConfig,
-      entry: path.resolve(__dirname + '/src/main.js')
+      entry: path.resolve(__dirname + '/src/index.js')
       output:
         filename: 'rhoa.js'
         libraryTarget: 'umd'
-        library: 'rhoa'
+        library: 'Rhoa'
         umdNamedDefine: true
   ]
 else if process.env.NODE_ENV == 'test'
