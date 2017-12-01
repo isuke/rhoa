@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "webpack --progress --hide-modules"
+    "test": "cross-env NODE_ENV=test mocha-webpack --webpack-config webpack.config.js --require spec/setup.js spec/**/*.spec.coffee",
+    "build": "cross-env NODE_ENV=development webpack --progress --hide-modules"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,13 @@
     "clean-webpack-plugin": "^0.1.17",
     "coffee-loader": "^0.8.0",
     "coffeescript": "^2.0.0",
+    "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
+    "expect": "^21.2.1",
+    "jsdom": "^11.5.1",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^4.0.1",
+    "mocha-webpack": "^1.0.1",
     "postcss": "^6.0.11",
     "postcss-loader": "^2.0.6",
     "pug": "^2.0.0-rc.2",
@@ -37,8 +44,10 @@
     "stylus-resources-loader": "^0.0.4",
     "vue-loader": "^12.1.0",
     "vue-template-compiler": "^2.3.3",
+    "vue-test-utils": "^1.0.0-beta.6",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.4.5",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "webpack-node-externals": "^1.6.0"
   }
 }

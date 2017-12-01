@@ -2,6 +2,7 @@ path = require('path')
 webpack = require('webpack')
 merge = require('webpack-merge')
 CleanWebpackPlugin = require('clean-webpack-plugin')
+nodeExternals = require('webpack-node-externals')
 
 loader = {}
 loader.coffee = ['babel-loader', 'coffee-loader']
@@ -58,30 +59,43 @@ baseConfig =
     new webpack.ProvidePlugin
       'Vue': 'vue'
       '_': 'lodash'
-    new CleanWebpackPlugin(['dist'])
-    new webpack.optimize.UglifyJsPlugin
-      minimize : true
-      sourceMap: true
-      mangle: true
-      compress:
-        warnings: false
-    new webpack.LoaderOptionsPlugin
-      minimize: true
   ]
-  devtool: '#source-map'
 
-module.exports = [
-  merge baseConfig,
-    entry: path.resolve(__dirname + '/src/plugin.js')
-    output:
-      filename: 'rhoa.min.js'
-      libraryTarget: 'window'
-      library: 'Rhoa'
-  merge baseConfig,
-    entry: path.resolve(__dirname + '/src/main.js')
-    output:
-      filename: 'rhoa.js'
-      libraryTarget: 'umd'
-      library: 'rhoa'
-      umdNamedDefine: true
-]
+if process.env.NODE_ENV == 'production'
+  productionConfig = merge baseConfig
+    plugins: [
+      new CleanWebpackPlugin(['dist'])
+      new webpack.optimize.UglifyJsPlugin
+        minimize : true
+        sourceMap: true
+        mangle: true
+        compress:
+          warnings: false
+      new webpack.LoaderOptionsPlugin
+        minimize: true
+    ]
+    devtool: '#source-map'
+
+  config = [
+    merge productionConfig,
+      entry: path.resolve(__dirname + '/src/plugin.js')
+      output:
+        filename: 'rhoa.min.js'
+        libraryTarget: 'window'
+        library: 'Rhoa'
+    merge productionConfig,
+      entry: path.resolve(__dirname + '/src/main.js')
+      output:
+        filename: 'rhoa.js'
+        libraryTarget: 'umd'
+        library: 'rhoa'
+        umdNamedDefine: true
+  ]
+else if process.env.NODE_ENV == 'test'
+  config = merge baseConfig,
+    externals: [nodeExternals()]
+    devtool: 'inline-cheap-module-source-map'
+else
+  console.error "`#{process.env.NODE_ENV}` is not defined."
+
+module.exports = config

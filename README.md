@@ -29,3 +29,9 @@ export default = {
 };
 </script>
 ```
+
+## Test
+
+```sh
+yarn run test
+```

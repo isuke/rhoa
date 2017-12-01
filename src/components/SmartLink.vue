@@ -1,7 +1,7 @@
 <template lang="pug">
 form.smart-link(method="post", :action="href", :class="{'-reset': isResetedStyle}")
-  input(type="hidden", name="_method", :value="method.toUpperCase()")
-  input(type="hidden", :name="tokenName", :value="token")
+  input.method(type="hidden", name="_method", :value="method.toUpperCase()")
+  input.token(type="hidden", :name="tokenName", :value="token")
   input.submit(type="submit", :value="text")
 </template>
 
