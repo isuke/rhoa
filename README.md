@@ -14,7 +14,7 @@ A Vue.js 2.0 usueful mini components for Web.
 <script srt="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="https://cdn.jsdelivr.net/npm/rhoa@v0.0.2/dist/rhoa.min.js"></script>
 <script>
-  window.Rhoa.default.install(Vue, {})
+  window.Rhoa.install(Vue, {})
 </script>
 ```
 
