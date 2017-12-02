@@ -19,15 +19,17 @@ if [ $? -eq 0 ]; then
 fi
 
 printf "${GEEEN}Rewite src/index.js\n${RESET}"
-sed -i '' -e "s/Version = '[0-9]+\.[0-9]+\.[0-9]+'/Version = '$VERSION'/g" src/index.js
+gsed -r -i "s/VERSION = '[0-9]+\.[0-9]+\.[0-9]+'/VERSION = '$VERSION'/g" src/index.js
 git add src/index.js
 
 printf "${GEEEN}Rewite package.json\n${RESET}"
-sed -i '' -e "s/\"version\": \"[0-9]+\.[0-9]+\.[0-9]+\"/\"version\": \"$VERSION\"/g" package.json
+gsed -r -i "s/\"version\": \"[0-9]+\.[0-9]+\.[0-9]+\"/\"version\": \"$VERSION\"/g" package.json
 git add package.json
 
 printf "${GEEEN}git commit\n${RESET}"
+git add dist
 git commit -m "Upgrade to v$VERSION"
 git tag v$VERSION
+
 
 printf "${GEEEN}Please command 'git push origin master && git push origin v$VERSION && yarn publish'\n${RESET}"
