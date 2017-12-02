@@ -6,7 +6,7 @@
 <script lang="coffee">
 export default
   name: 'FlexibleImage'
-  introduction: "Link for HTTP method such as 'post'."
+  introduction: "Zoom in/out the image by centering."
   description: """
     TODO
   """
@@ -18,7 +18,7 @@ export default
       note: 'image url'
     width:
       type: Number
-      require: true
+      required: true
       note: 'image width'
     height:
       type: Number
