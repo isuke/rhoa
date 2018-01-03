@@ -56,7 +56,7 @@ export default
     @loadImage()
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .flexible-image
   position: relative
   overflow: hidden
