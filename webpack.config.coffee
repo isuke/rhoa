@@ -92,6 +92,22 @@ if process.env.NODE_ENV == 'production'
         library: 'Rhoa'
         umdNamedDefine: true
   ]
+else if process.env.NODE_ENV == 'development'
+  config = merge baseConfig,
+    entry: path.resolve(__dirname + '/src/plugin.js')
+    output:
+      filename: 'build.js'
+      libraryTarget: 'umd'
+      library: 'Rhoa'
+      umdNamedDefine: true
+    devtool: '#eval-source-map'
+    devServer:
+      contentBase: 'tmp'
+      historyApiFallback: true
+      noInfo: true
+    performance:
+      hints: false
+
 else if process.env.NODE_ENV == 'test'
   config = merge baseConfig,
     externals: [nodeExternals()]
