@@ -2,7 +2,7 @@
 
 [![wercker status](https://app.wercker.com/status/3f53885ec26792f3a8ce6007e22348e4/s/master "wercker status")](https://app.wercker.com/project/byKey/3f53885ec26792f3a8ce6007e22348e4)
 
-A Vue.js 2.0 usueful mini components for Web.
+A Vue.js 2.0 usueful without UI components for Web.
 
 [Document](https://isuke.github.io/rhoa-doc/)
 
@@ -47,5 +47,12 @@ export default = {
 ## Test
 
 ```sh
-yarn run test
+$ yarn run test
+```
+
+## Deploy
+
+```sh
+$ yarn run build
+$ git push origin master && git push origin v1.x.x && yarn publish v1.x.x
 ```
