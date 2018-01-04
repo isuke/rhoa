@@ -1,7 +1,7 @@
 {
   "name": "rhoa",
   "description": "A Vue.js 2.0 useful mini components for Web.",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "dist/rhoa.js",
   "cdn": "dist/rhoa.min.js",
   "author": "isuke <isuke770@gmail.com>",
