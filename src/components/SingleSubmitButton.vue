@@ -1,5 +1,10 @@
 <template lang="pug">
-button.single-submit-button(:disabled="isDisable", @click.prevent="doSubmit")
+button.single-submit-button(
+  :disabled="isDisable",
+  :type="type",
+  :autofocus="autofocus",
+  @click.prevent="doSubmit"
+)
   slot
 </template>
 
@@ -17,11 +22,22 @@ export default
     This component is disabled between it clicked and 'doSomething' is completed.
   """
   props:
+    type:
+      type: String
+      required: false
+      default: 'button'
+      validator: (val) -> ['button', 'reset', 'submit'].includes(val)
+      note: 'this button type'
+    autofocus:
+      type: Boolean
+      required: false
+      default: false
+      note: 'this button is autofocus or not'
     disabled:
       type: Boolean
       required: false
       default: false
-      note: 'that button is disabled or not'
+      note: 'this button is disabled or not'
   data: ->
     processing: false
   computed:
