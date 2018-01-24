@@ -23,7 +23,7 @@ A Vue.js 2.0 usueful without UI components for Web.
 ```sh
 $ npm install rhoa --save
 # or
-$ yarn add -D rhoa
+$ yarn add rhoa
 ```
 
 ```html
