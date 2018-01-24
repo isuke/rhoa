@@ -53,6 +53,5 @@ $ yarn run test
 ## Deploy
 
 ```sh
-$ yarn run build
-$ git push origin master && git push origin v1.x.x && yarn publish v1.x.x
+$ deploy 1.x.x
 ```
