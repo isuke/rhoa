@@ -9,10 +9,12 @@ form.smart-link(method="post", :action="href", :class="{'-reset': isResetedStyle
 export default
   name: 'SmartLink'
   introduction: "Link for HTTP method such as 'post'."
-  description: """
-    TODO
+  token: """
+    <smart-link href="/logout" method="delete" text="Log out" is-reseted-style></smart-link>
   """
-  token: '<smart-link href="/logout" method="delete" text="Log out" is-reseted-style></smart-link>'
+  description: """
+    <p>Send to /logout by delete method when click [Log out] button.</p>
+  """
   props:
     href:
       type: String
