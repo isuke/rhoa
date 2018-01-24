@@ -7,10 +7,12 @@
 export default
   name: 'FlexibleImage'
   introduction: "Zoom in/out the image by centering."
-  description: """
-    TODO
+  token: """
+    <flexible-image image-url="http://placehold.it/350x250" :width="150" :height="150"></flexible-image>
   """
-  token: '<flexible-image image-url="http://placehold.it/350x250" :width="150" :height="150"></flexible-image>'
+  description: """
+    <p>This placeholder image will zoom in 150px x 150px and centering.</p>
+  """
   props:
     imageUrl:
       type: String
