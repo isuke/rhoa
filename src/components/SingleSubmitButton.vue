@@ -18,8 +18,8 @@ export default
     </single-submit-button>
   """
   description: """
-    The 'doSomthing' should return Promise Object.
-    This component is disabled between it clicked and 'doSomething' is completed.
+    <p>The 'doSomthing' should return Promise Object.</p>
+    <p>This component is disabled between it clicked and 'doSomething' is completed.</p>
   """
   props:
     type:
