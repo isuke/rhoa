@@ -10,7 +10,7 @@ button.single-submit-button(
 
 <script lang="coffee">
 export default
-  name: 'SimgleSubmitButton'
+  name: 'SingleSubmitButton'
   introduction: "prevent 'Double Submi' button"
   token: """
     <single-submit-button @click="doSomething">
