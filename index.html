@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Rhoa Debug</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="/Users/isuke/Downloads/vue.js"></script>
     <script src="http://localhost:8080/build.js"></script>
   </head>
 
@@ -12,15 +12,44 @@
     <h1>Rhoa Debug</h1>
     <main id="main">
       <p>{{message}}</p>
+      <form>
+        <single-submit-button ref="submit" @click.prevent="doSomething('終わったよ')" @click.right="doRightCLick" @hogehoge="this" type="submit">
+          Click Here
+        </single-submit-button>
+        <p>{{msg}}</p>
+      </form>
     </main>
 
     <script>
+      Vue.config.debug = true;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = true;
+      Vue.config.silent = false;
+
+
       window.Rhoa.install(Vue, {});
 
       new Vue({
         el: '#main',
         data: {
           message: "hello",
+          msg: 'init'
+        },
+        methods: {
+          doSomething: function (msg) {
+            this.$refs.submit.processing = true
+            setTimeout(() => {
+              this.msg = msg;
+              this.$refs.submit.processing = false
+            }, 1000);
+          },
+          doRightCLick: function() {
+            this.$refs.submit.processing = true
+            setTimeout(() => {
+              this.msg = "右クリックしたよ";
+              this.$refs.submit.processing = false
+            }, 1000);
+          }
         }
       });
     </script>

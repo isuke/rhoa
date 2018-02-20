@@ -3,7 +3,7 @@ button.single-submit-button(
   :disabled="isDisable",
   :type="type",
   :autofocus="autofocus",
-  @click.prevent="doSubmit"
+  v-on="$listeners"
 )
   slot
 </template>
@@ -11,14 +11,13 @@ button.single-submit-button(
 <script lang="coffee">
 export default
   name: 'SingleSubmitButton'
-  introduction: "prevent 'Double Submi' button"
+  introduction: "prevent 'Double Submit' button"
   token: """
     <single-submit-button @click="doSomething">
       Click Here!
     </single-submit-button>
   """
   description: """
-    <p>The 'doSomthing' should return Promise Object.</p>
     <p>This component is disabled between it clicked and 'doSomething' is completed.</p>
   """
   props:
@@ -42,12 +41,6 @@ export default
     processing: false
   computed:
     isDisable: -> @disabled || @processing
-  methods:
-    doSubmit: (event) ->
-      @processing = true
-      @$listeners.click(event)
-        .then  () => @processing = false
-        .catch () => @processing = false
 </script>
 
 <style lang="stylus" scoped>
