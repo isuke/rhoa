@@ -4,11 +4,8 @@ import SingleSubmitButton from '../src/components/SingleSubmitButton.vue'
 describe 'SingleSubmitButton.vue', =>
   wrapper = shallow SingleSubmitButton,
     listeners:
-      click:
-        (event) ->
-          new Promise (resolve, _reject) =>
-            window.completeProcess = true
-            resolve("this event is #{event}")
+      click: (event) ->
+        window.completeProcess = true
     props:
       type: 'submit'
       autofocus: true
