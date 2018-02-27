@@ -5,6 +5,7 @@ CleanWebpackPlugin = require('clean-webpack-plugin')
 nodeExternals = require('webpack-node-externals')
 
 loader = {}
+loader.js     = ['babel-loader']
 loader.coffee = ['babel-loader', 'coffee-loader']
 loader.css    = [
   { loader: 'style-loader'  , options: sourceMap: true }
@@ -31,6 +32,10 @@ baseConfig =
             loaders:
               coffee: loader.coffee
               stylus: loader.stylus
+      }
+      {
+        test: /\.js/
+        use: loader.js
       }
       {
         test: /\.coffee$/
