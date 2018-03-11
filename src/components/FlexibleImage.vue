@@ -1,6 +1,6 @@
 <template lang="pug">
 .flexible-image(:style="{width: width + unit, height: height + unit}")
-  img.image(:src="imageUrl" :style="{width: fixedWidth + unit, height: fixedHeight + unit}")
+  img.image(:src="imageUrl", :style="{width: fixedWidth + unit, height: fixedHeight + unit}")
 </template>
 
 <script lang="coffee">

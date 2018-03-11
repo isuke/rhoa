@@ -3,7 +3,7 @@ button.single-submit-button(
   :disabled="isDisable",
   :type="type",
   :autofocus="autofocus",
-  v-on="$listeners"
+  v-on="$listeners",
   @click="processing = true"
 )
   slot

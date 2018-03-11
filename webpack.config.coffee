@@ -1,3 +1,4 @@
+fs = require('fs')
 path = require('path')
 webpack = require('webpack')
 merge = require('webpack-merge')
@@ -5,6 +6,12 @@ CleanWebpackPlugin = require('clean-webpack-plugin')
 nodeExternals = require('webpack-node-externals')
 
 loader = {}
+loader.vuePre = [
+  {
+    loader: 'vue-pug-lint-loader'
+    options: JSON.parse(fs.readFileSync(path.resolve(__dirname, '.pug-lintrc')))
+  }
+]
 loader.js     = ['babel-loader']
 loader.coffee = ['babel-loader', 'coffee-loader']
 loader.css    = [
@@ -24,6 +31,12 @@ baseConfig =
     path: path.resolve("#{__dirname}/dist/")
   module:
     rules: [
+      {
+        test: /\.vue$/
+        enforce: "pre"
+        exclude: /node_modules/
+        use: loader.vuePre
+      }
       {
         test: /\.vue$/
         use:
@@ -112,7 +125,6 @@ else if process.env.NODE_ENV == 'development'
       noInfo: true
     performance:
       hints: false
-
 else if process.env.NODE_ENV == 'test'
   config = merge baseConfig,
     externals: [nodeExternals()]
