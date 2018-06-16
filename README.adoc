@@ -1,32 +1,45 @@
-# Rhoa
+:chapter-label:
+:icons: font
+:lang: en
+:sectanchors:
+:sectlinks:
+:sectnums:
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 1
 
-[![wercker status](https://app.wercker.com/status/3f53885ec26792f3a8ce6007e22348e4/s/master "wercker status")](https://app.wercker.com/project/byKey/3f53885ec26792f3a8ce6007e22348e4)
+= Rhoa
 
-A Vue.js 2.0 usueful without UI components for Web.
+image::https://app.wercker.com/status/3f53885ec26792f3a8ce6007e22348e4/s/master[wercker status]
 
-[Document](https://isuke.github.io/rhoa-doc/)
+A Vue.js 2.0 usueful **No UI** components for Web.
 
-## Usage
+https://isuke.github.io/rhoa-doc/[Document]
 
-### CDN
+== Usage
 
-```html
+=== CDN
+
+[source,html]
+----
 <script srt="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="https://cdn.jsdelivr.net/npm/rhoa/dist/rhoa.min.js"></script>
 <script>
   window.Rhoa.install(Vue, {})
 </script>
-```
+----
 
-### NPM
+=== NPM
 
-```sh
+[source,sh]
+----
 $ npm install rhoa --save
 # or
 $ yarn add rhoa
-```
+----
 
-```html
+[source,html]
+----
 <template>
   <div class="main">
     <smart-link href="/logout" method="delete" text="Log out" is-reseted-style></smart-link>
@@ -42,16 +55,18 @@ export default = {
   }
 };
 </script>
-```
+----
 
-## Test
+== Test
 
-```sh
+[source,sh]
+----
 $ yarn run test
-```
+----
 
-## Deploy
+== Deploy
 
-```sh
+[source,sh]
+----
 $ deploy 1.x.x
-```
+----
