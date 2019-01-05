@@ -8,9 +8,7 @@
 :toc: left
 :toclevels: 1
 
-= Rhoa
-
-image::https://app.wercker.com/status/3f53885ec26792f3a8ce6007e22348e4/s/master[wercker status]
+= Rhoa image:https://travis-ci.org/isuke/rhoa.svg?branch=master["Build Status", link="https://travis-ci.org/isuke/rhoa"]
 
 A Vue.js 2.0 usueful **No UI** components for Web.
 
